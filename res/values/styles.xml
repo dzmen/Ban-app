@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Gebruik bij slidingmenu -->
+    <style name="Scheidingslijn">
+        <item name="android:background">@color/red</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0.5px</item>
+    </style>
+
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BAN Badminton</string>
+    <string name="load">Loading app&#8230;</string>
+    <string name="title_activity_main">BAN Badminton</string>
+    <string name="banapp">BAN APP</string>
+    <string name="Dialog_a_text">\nCopyright © 2014 Webcommissie,\ndisclaimer\nApp versie: 3.0.0</string>
+    <string name="made_by">Made by: Danny Zwiggelaar</string>
+    <string name="m_site">Home</string>
+    <string name="m_facebook">Facebook</string>
+    <string name="m_foto">Foto\'s</string>
+    <string name="m_agenda">Agenda</string>
+    <string name="m_wedstrijd">Wedstrijden</string>
+    <string name="m_over">Over de app</string>
+
+</resources>

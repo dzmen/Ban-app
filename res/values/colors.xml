@@ -1,0 +1,10 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FD1212</color>
+    
+   <drawable name="pressed_color">#F75D59</drawable>
+   <drawable name="normal_color">#FFFFFF</drawable>
+    
+</resources>

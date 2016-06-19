@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='css/fullcalendar.css' rel='stylesheet' />
+<script src='js/jquery-2.1.1.min.js'></script>
+<script src='js/moment.min.js'></script>
+<script src='js/fullcalendar.min.js'></script>
+<script src='js/fullcalendar-nl.js'></script>
+<script src='js/gcal.js'></script>
+<script>
+
+	$(document).ready(function() {
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'title',
+				center: 'prev,next today',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			lang: 'nl',
+			eventSources: [
+				{
+					url: "http://www.google.com/calendar/feeds/webcommissie@banbadminton.nl/public/basic",
+					editable: false,
+					className: 'Algemeen',
+					color: '#B1440E'
+				},
+				{
+					url: "http://www.google.com/calendar/feeds/ng3pv6ncjl31bqpd2tb4ivvmv8@group.calendar.google.com/public/basic",
+					editable: false,
+					className: 'Competitie junioren',
+					color: '#B1365F'
+				},
+				{
+					url: "http://www.google.com/calendar/feeds/7fopbcbjn0fmkug8t223jihsmk@group.calendar.google.com/public/basic",
+					editable: false,
+					className: 'Competitie senioren',
+					color: '#2F6309'
+				},
+				{
+					url: "http://www.google.com/calendar/feeds/n6gq9pb0u1iimstu8ma5pvm9ik@group.calendar.google.com/public/basic",
+					editable: false,
+					className: 'Recreanten junioren',
+					color: '#2952A3'
+				},
+				{
+					url: "http://www.google.com/calendar/feeds/futrkr3phbp4srpivmmct4kbbs@group.calendar.google.com/public/basic",
+					editable: false,
+					className: 'Recreanten senioren',
+					color: '#5229A3'
+				}
+			],
+			eventClick: function(event) {
+			//http://momentjs.com/docs/#/displaying/format/
+			//Android command 'calendar:beginYear, beginMonth, beginDay, beginHour, beginMin, endYear, endMonth, endDay, endHour, endMin, My Event Name'
+				//console.log(event.title);
+				
+				//console.log(event.start.format());
+				//Split Event start
+				var startDate = event.start.format();
+				var sDateSplit = startDate.split('T');
+				var sDateDatum = sDateSplit[0].split('-');
+				var sDateTime = sDateSplit[1].split(':');
+				//console.log('year: ' + sDateDatum[0] + ' month: ' + sDateDatum[1] + ' day: ' + sDateDatum[2]);
+				//console.log('hour: ' + sDateTime[0] + ' minute: ' + sDateTime[1]);
+				
+				//console.log(event.end.format());
+				//Split Event end
+				var endDate = event.end.format();
+				var eDateSplit = endDate.split('T');
+				var eDateDatum = eDateSplit[0].split('-');
+				var eDateTime = eDateSplit[1].split(':');
+				//console.log('year: ' + eDateDatum[0] + ' month: ' + eDateDatum[1] + ' day: ' + eDateDatum[2]);
+				//console.log('hour: ' + eDateTime[0] + ' minute: ' + eDateTime[1]);
+				
+				window.open("calendar:" + sDateDatum[0] + "," + sDateDatum[1] + "," + sDateDatum[2] + "," + sDateTime[0] + "," + sDateTime[1] + "," + eDateDatum[0] + "," + eDateDatum[1] + "," + eDateDatum[2] + "," + eDateTime[0] + "," + eDateTime[1] + event.title );
+								
+				return false;
+			},
+			weekMode: 'liquid',
+			height: calcCalendarHeight()
+		});
+		
+		function calcCalendarHeight() {
+			var h = $(window).height() - 40;
+			return h;
+		}
+		
+		$(window).resize(function() {
+			$('#calendar').fullCalendar('option', 'height', calcCalendarHeight());
+		});
+		
+	});
+
+</script>
+<style>
+
+	body {
+		text-align: center;
+		font-size: 13px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+	}
+
+	#calendar {
+		width: 100%;
+	}
+
+</style>
+</head>
+<body>
+<div id='calendar'></div>
+</body>
+</html>
